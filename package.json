@@ -1,0 +1,54 @@
+{
+  "name": "stresszero-sdk",
+  "version": "1.0.0",
+  "description": "Official SDK for the StressZero Intelligence API — Burnout risk scoring in 3 dimensions",
+  "type": "module",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "import": "./build/index.js"
+    }
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "stresszero",
+    "burnout",
+    "mental-health",
+    "wellness",
+    "hr",
+    "scoring",
+    "api",
+    "sdk",
+    "coaching",
+    "qvct"
+  ],
+  "author": {
+    "name": "Emmanuel Gomes Soares",
+    "email": "hello@stresszeroentrepreneur.fr",
+    "url": "https://stresszeroentrepreneur.fr"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stresszero/stresszero-sdk"
+  },
+  "homepage": "https://stresszeroentrepreneur.fr/intelligence-api"
+}
