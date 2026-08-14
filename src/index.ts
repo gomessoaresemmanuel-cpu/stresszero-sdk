@@ -186,9 +186,9 @@ export class StressZero {
   private timeout: number;
 
   constructor(apiKey: string, config: StressZeroConfig = {}) {
-    if (!apiKey || !apiKey.startsWith("sz_live_")) {
+    if (!apiKey || (!apiKey.startsWith("sz_live_") && !apiKey.startsWith("sz_test_"))) {
       throw new Error(
-        "Invalid API key. Must start with 'sz_live_'. " +
+        "Invalid API key. Must start with 'sz_live_' or 'sz_test_'. " +
         "Get your free key at: https://stresszeroentrepreneur.fr/intelligence-api",
       );
     }
@@ -210,7 +210,7 @@ export class StressZero {
         headers: {
           Authorization: `Bearer ${this.apiKey}`,
           "Content-Type": "application/json",
-          "User-Agent": "stresszero-sdk/1.0.0",
+          "User-Agent": "stresszero-sdk/1.2.0",
           ...options.headers,
         },
       });
@@ -230,7 +230,7 @@ export class StressZero {
   }
 
   /**
-   * Score burnout risk across 3 dimensions.
+   * Run a burnout prevention self-assessment across 3 dimensions.
    *
    * @example
    * ```ts

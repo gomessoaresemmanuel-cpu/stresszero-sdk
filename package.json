@@ -1,7 +1,7 @@
 {
   "name": "stresszero-sdk",
-  "version": "1.0.0",
-  "description": "Official SDK for the StressZero Intelligence API — Burnout risk scoring in 3 dimensions",
+  "version": "1.2.0",
+  "description": "Official SDK for the StressZero Intelligence API — burnout prevention self-assessment (non-medical), 3 dimensions",
   "type": "module",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",

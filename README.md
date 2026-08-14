@@ -2,7 +2,7 @@
 
 Official JavaScript/TypeScript SDK for the [StressZero Intelligence API](https://stresszeroentrepreneur.fr/intelligence-api).
 
-Score burnout risk across 3 dimensions (physical, emotional, effectiveness) with typed responses and zero dependencies.
+Run a burnout prevention self-assessment across 3 dimensions (physical, emotional, effectiveness) with typed responses and zero dependencies.
 
 ## Install
 
