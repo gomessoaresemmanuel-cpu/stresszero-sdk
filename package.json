@@ -1,7 +1,7 @@
 {
   "name": "stresszero-sdk",
-  "version": "1.0.0",
-  "description": "Official SDK for the StressZero Intelligence API — Burnout risk scoring in 3 dimensions",
+  "version": "2.0.0",
+  "description": "Local qualitative workload reflection — no scoring, diagnosis, prediction or triage",
   "type": "module",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -24,13 +24,8 @@
   "keywords": [
     "stresszero",
     "burnout",
-    "mental-health",
     "wellness",
-    "hr",
-    "scoring",
-    "api",
     "sdk",
-    "coaching",
     "qvct"
   ],
   "author": {
@@ -48,7 +43,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stresszero/stresszero-sdk"
+    "url": "https://github.com/gomessoaresemmanuel-cpu/stresszero-sdk"
   },
   "homepage": "https://stresszeroentrepreneur.fr/intelligence-api"
 }
