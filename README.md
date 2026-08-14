@@ -1,85 +1,39 @@
-# StressZero SDK
+# StressZero SDK — v2
 
-Official JavaScript/TypeScript SDK for the [StressZero Intelligence API](https://stresszeroentrepreneur.fr/intelligence-api).
+SDK JavaScript/TypeScript local pour une **réflexion qualitative sur la charge de travail**.
 
-Score burnout risk across 3 dimensions (physical, emotional, effectiveness) with typed responses and zero dependencies.
+> **Statut : en développement.** Les anciennes fonctions réseau de scoring, rapport et prédiction sont retirées. Cette version ne fournit ni diagnostic, ni thérapie, ni dépistage, ni triage et ne remplace pas un professionnel de santé.
 
-## Install
+## Installation
 
 ```bash
 npm install stresszero-sdk
 ```
 
-## Quick Start
+## Exemple
 
 ```typescript
 import { StressZero } from 'stresszero-sdk'
 
-const sz = new StressZero('sz_live_your_key_here')
-
-// Quick 3-score check
-const result = await sz.quickCheck(40, 55, 35, {
-  profession: 'entrepreneur',
-  hours_per_week: 60,
+const stresszero = new StressZero()
+const result = stresszero.reflectWorkload({
+  openLoops: ['Répondre au client', 'Préparer la trésorerie'],
+  recoveryObservation: 'Je décroche difficilement le soir',
+  decisionLoad: 'Plusieurs arbitrages restent ouverts',
 })
 
-if (result.success) {
-  console.log(`Score: ${result.data.score.total}/100`)
-  console.log(`Risk: ${result.data.risk.level}`)
-  console.log(`Recommendations:`, result.data.recommendations)
-}
+console.log(result.questions)
 ```
 
-## Full Analysis
+Le traitement est local : aucun appel réseau, aucun score, aucune classification.
 
-```typescript
-const result = await sz.analyzeBurnout({
-  responses: [
-    { dimension: 'physical', question_id: 'sleep', value: 40, weight: 3 },
-    { dimension: 'physical', question_id: 'energy', value: 50, weight: 2 },
-    { dimension: 'emotional', question_id: 'motivation', value: 55, weight: 2 },
-    { dimension: 'emotional', question_id: 'stress', value: 30, weight: 3 },
-    { dimension: 'effectiveness', question_id: 'productivity', value: 35, weight: 2 },
-    { dimension: 'effectiveness', question_id: 'focus', value: 45, weight: 1 },
-  ],
-  context: {
-    profession: 'startup founder',
-    hours_per_week: 60,
-    years_experience: 5,
-  },
-  options: { language: 'fr', include_recommendations: true },
-})
-```
+## Rôles
 
-## Detailed Report (Starter+ tier)
+- **Emmanuel Gomes Soares** : fondateur, méthode EGS et outils. Aucun accompagnement individuel.
+- **Ingrid Averianov** : coach professionnelle. Tous les accompagnements individuels.
 
-```typescript
-const report = await sz.generateReport({
-  responses: [/* same format */],
-  context: {
-    company_name: 'My Company',
-    employee_name: 'John Doe',
-  },
-  language: 'en',
-  format: 'json',
-})
+## Migration depuis la v1
 
-if (report.success) {
-  console.log(report.data.action_plan.immediate)
-}
-```
-
-## API Tiers
-
-| Tier | Price | Calls/month |
-|------|-------|-------------|
-| Free | 0€ | 500 |
-| Starter | 29€/mo | 5,000 |
-| Pro | 99€/mo | 25,000 |
-| Enterprise | 299€/mo | 100,000 |
-
-[Get your free API key](https://stresszeroentrepreneur.fr/intelligence-api)
-
-## License
+La v2 est une rupture volontaire. Les méthodes `analyzeBurnout`, `generateReport`, `quickCheck` et `createApiKey` sont supprimées, car les endpoints correspondants sont suspendus pendant une revue de conformité.
 
 MIT — [StressZero Entrepreneur](https://stresszeroentrepreneur.fr)
